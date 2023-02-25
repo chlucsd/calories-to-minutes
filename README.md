@@ -37,5 +37,19 @@ Here the number of calories seem to increase as the recipe decrease in time leng
 
 In this table we decide to sort minute values into ones greater than 50 and ones less than 50, as they seem to hit their peak there. By aggregating by this new boolean column and calling mean, we get the resulting table. The table seems to show that shorter recipes have more calories on average.
 
+
 ## Assessment of Missingness
 
+I could not find a column that was NMAR, as the only columns with missing values were ‘rating’ ‘average_ratings’ and ‘description. It is impossible to tell whether ‘rating’ is NMAR unless I were to fully know the function behind why the ratings were missing. As they came from 0 star ratings, it could be due to other reasons other than default, such as a poorly made recipe or one that simply did not taste good. It is impossible to confirm without this extra information.
+
+### Missingness Plot
+<iframe src="assets/missingness_plot.html" width=800 height=600 frameBorder=0></iframe>
+As it may be seen in this plot, the distrivution of n_steps when description is missing is very different from when it is not missing.
+
+I believe that the ‘description’ column may be MAR as running a permutation test against the column ‘n_steps’ seemed to result in a resulting p_value of .17, which was above my established alpha value of 0.05. The discrepancy in distributions shown in the plot supports this. Running it against calories resulted in no such correlation, but it is outweighed by the potential correlation with n_steps.
+
+## Hypothesis Testing
+
+For my hypothesis testing, my null hypothesis was thus: "Recipes with more than 50 minutes have more calories on average." Correspondingly, my alternative hypothesis was: "Recipe with more than 50 minutes do not have more calories on average".
+I chose these null hypotheses because of two main reasons: the aggregation of the table shown earlier seemed to suggest a trend of higher calories towards lower times, and I chose 50 due to the majority of recipes being below 100 minutes, and having the highest distribution at around 50, which served as a solid middle point. 
+The resulting p-value for my permutations was 0.0, which meant that our null hypothesis could not be accepted. By taking a further look at the generated statistics, they seemed to all be much smaller than the absolute mean test statistic. This seems to suggest that the distribution of minutes to calories may not usually be as skewed as on food.com, and would usually be more even.
