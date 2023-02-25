@@ -27,6 +27,7 @@ shorter recipes.
 |:---------------|----------:|-----------:|
 | False          |  151.715  |    469.967 |
 | True           |   23.8409 |    340.853 |
+
 In this table we decide to sort minute values into ones greater than 50 and ones less than 50, as they seem to hit their peak there.
 By aggregating by this new boolean column and calling mean, we get the resulting table.
 The table seems to show that shorter recipes have more calories on average.
