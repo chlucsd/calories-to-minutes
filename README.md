@@ -1,2 +1,2 @@
 # calories_to_minutes
-Project 3 for DSC 8-
+Project 3 for DSC 8
