@@ -1,4 +1,4 @@
-# calories_to_minutes
+# Calories and Minutes
 Project 3 for DSC 8
 
 ## Introduction
